@@ -10,9 +10,26 @@
 
 @implementation AwesomeCounter
 
+
 - (NSString *) stringWithNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
-    /* WORK HERE */
-    return @"";
+    NSMutableString *returnString = [NSMutableString stringWithFormat:@""];
+    
+    if (number < otherNumber) {
+        for (NSInteger n = number; n <= otherNumber; n++) {
+            NSMutableString *numberString = [NSMutableString stringWithFormat:@"%ld", (long)n];
+            [returnString appendString:numberString];
+        }
+    } else if (number > otherNumber) {
+        for (NSInteger n = otherNumber; n <= number; n++) {
+            NSMutableString *numberString = [NSMutableString stringWithFormat:@"%ld", (long)n];
+            [returnString appendString:numberString];
+        }
+    } else {
+        returnString = [NSMutableString stringWithFormat:@"%ld", (long)number];
+    }
+    
+    
+    return returnString;
 }
 
 @end
