@@ -11,10 +11,14 @@
 @implementation StringCheese
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
-    NSMutableString *myFavoriteCheese = [@"My favorite cheese is Name." mutableCopy];
-    NSRange nameRange = [myFavoriteCheese rangeOfString:@"Name"];
-    [myFavoriteCheese replaceCharactersInRange:nameRange withString:cheeseName];
-    return myFavoriteCheese;
+    NSString *returnString = [NSString stringWithFormat:@"My favorite cheese is %@", cheeseName];
+    
+    return returnString;
+    
+//    NSMutableString *myFavoriteCheese = [@"My favorite cheese is Name." mutableCopy];
+//    NSRange nameRange = [myFavoriteCheese rangeOfString:@"Name"];
+//    [myFavoriteCheese replaceCharactersInRange:nameRange withString:cheeseName];
+//    return myFavoriteCheese;
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
