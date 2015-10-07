@@ -12,13 +12,14 @@
 
 - (NSNumber *) numberThatIsTwiceAsBigAsNumber:(NSNumber *)number {
     NSNumber *returnNumber = [[NSNumber alloc] init];
-    int intNumber = [number intValue];
+    NSInteger intNumber = [number intValue];
     returnNumber = [NSNumber numberWithInt:(intNumber * 2)];
     
     return returnNumber;
 }
 
 - (NSArray *) arrayOfNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
+    
     NSMutableArray *returnArray = [[NSMutableArray alloc] init];
     if (number < otherNumber) {
         
@@ -44,6 +45,7 @@
 }
 
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
+    if (arrayOfNumbers != nil && arrayOfNumbers.count > 0){
     NSMutableArray *mutableArrayOfNumbers = [[NSMutableArray alloc] initWithArray:arrayOfNumbers];
     
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
@@ -53,6 +55,9 @@
     
     
     return returnNumber;
+    }
+    
+    return 0;
 }
 
 @end
