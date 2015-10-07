@@ -20,13 +20,16 @@
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
     NSMutableArray *favDrinks = [[NSMutableArray alloc] init];
-    if (charactersArray != nil && [charactersArray[0] isKindOfClass:[NSDictionary class]]) {
-        for (NSDictionary *character in charactersArray) {
-            NSString *favDrink = character[@"favorite drink"];
-            [favDrinks addObject:favDrink];
+    if (charactersArray != nil) {
+        // seperate second check out, so we are sure that the array is not nil first
+        if ([charactersArray[0] isKindOfClass:[NSDictionary class]]){
+            for (NSDictionary *character in charactersArray) {
+                NSString *favDrink = character[@"favorite drink"];
+                [favDrinks addObject:favDrink];
+            }
+            // Returning a mutableArray works, I thought it might not.  Why?
+            return favDrinks;
         }
-        // Returning a mutableArray works, I thought it might not.  Why?
-        return favDrinks;
     }
     
     return @[];
