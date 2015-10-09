@@ -11,7 +11,7 @@
 @implementation StringCheese
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
-    NSString *returnString = [NSString stringWithFormat:@"My favorite cheese is %@", cheeseName];
+    NSString *returnString = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
     
     return returnString;
     
@@ -25,9 +25,12 @@
     NSMutableString *output = [cheeseName mutableCopy];
     
     if ([[cheeseName lowercaseString] hasSuffix:@" cheese"]) {
-        NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+//        NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+//        
+//        [output replaceCharactersInRange:cheeseRange withString:@""];
         
-        [output replaceCharactersInRange:cheeseRange withString:@""];
+        output = [cheeseName stringByReplacingOccurrencesOfString:@" cheese" withString:@""];
+        
         
         
         
